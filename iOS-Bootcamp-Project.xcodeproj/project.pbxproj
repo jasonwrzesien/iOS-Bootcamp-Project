@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		962E4A212DAC4BC60054AC1D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 962E4A202DAC4BC60054AC1D /* FirebaseAnalytics */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		962E49E32DAC435F0054AC1D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				962E4A212DAC4BC60054AC1D /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,7 @@
 			);
 			name = "iOS-Bootcamp-Project";
 			packageProductDependencies = (
+				962E4A202DAC4BC60054AC1D /* FirebaseAnalytics */,
 			);
 			productName = "iOS-Bootcamp-Project";
 			productReference = 962E49D22DAC435D0054AC1D /* iOS-Bootcamp-Project.app */;
@@ -195,6 +201,9 @@
 			);
 			mainGroup = 962E49C92DAC435D0054AC1D;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				962E4A1F2DAC4B580054AC1D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 962E49D32DAC435D0054AC1D /* Products */;
 			projectDirPath = "";
@@ -552,6 +561,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		962E4A1F2DAC4B580054AC1D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		962E4A202DAC4BC60054AC1D /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 962E4A1F2DAC4B580054AC1D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 962E49CA2DAC435D0054AC1D /* Project object */;
 }
