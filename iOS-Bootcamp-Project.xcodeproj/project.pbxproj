@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		962E4A212DAC4BC60054AC1D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 962E4A202DAC4BC60054AC1D /* FirebaseAnalytics */; };
+		967F37882DAC4FCA006FEE04 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 967F37872DAC4FCA006FEE04 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				962E4A212DAC4BC60054AC1D /* FirebaseAnalytics in Frameworks */,
+				967F37882DAC4FCA006FEE04 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +120,7 @@
 			name = "iOS-Bootcamp-Project";
 			packageProductDependencies = (
 				962E4A202DAC4BC60054AC1D /* FirebaseAnalytics */,
+				967F37872DAC4FCA006FEE04 /* FirebaseAnalyticsWithoutAdIdSupport */,
 			);
 			productName = "iOS-Bootcamp-Project";
 			productReference = 962E49D22DAC435D0054AC1D /* iOS-Bootcamp-Project.app */;
@@ -578,6 +581,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 962E4A1F2DAC4B580054AC1D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
+		};
+		967F37872DAC4FCA006FEE04 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 962E4A1F2DAC4B580054AC1D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
