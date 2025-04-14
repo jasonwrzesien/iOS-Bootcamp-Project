@@ -14,12 +14,14 @@ struct AddPopup: View {
     @State private var amount: String = ""
     @State private var date = Date()
     @State private var recurrence = "Select"
+    @State private var type = "Select"
     @State private var showError: Bool = false
 
     let recurrenceOptions = ["Select", "Daily", "Weekly", "Monthly", "Annually"]
+    let typeOptions = ["Select", "Food", "Retail", "Living", "Transportation", "Entertainment", "Other"]
     
     var isFormValid: Bool {
-        !name.isEmpty && !amount.isEmpty
+        !name.isEmpty && !amount.isEmpty && type != "Select"
     }
 
     var body: some View {
@@ -44,6 +46,24 @@ struct AddPopup: View {
 
                 Picker("", selection: $recurrence) {
                     ForEach(recurrenceOptions, id: \.self) {
+                        Text($0)
+                    }
+                }
+                .pickerStyle(MenuPickerStyle())
+                .frame(maxWidth: 150)
+                .padding(.horizontal)
+                .background(Color(.systemGray6))
+                .cornerRadius(8)
+            }
+            
+            HStack {
+                Text("Type")
+                    .frame(width: 100, alignment: .leading)
+
+                Spacer()
+
+                Picker("", selection: $type) {
+                    ForEach(typeOptions, id: \.self) {
                         Text($0)
                     }
                 }

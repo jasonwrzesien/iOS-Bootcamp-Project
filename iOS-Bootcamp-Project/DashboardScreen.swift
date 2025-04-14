@@ -34,7 +34,7 @@ struct DashboardScreen: View {
                         showNotifications = true
                     }) {
                         Image(systemName: "bell")
-                            .font(.title2)
+                            .font(.title)
                             .foregroundColor(.yellow)
                             .padding()
                     }
