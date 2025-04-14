@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct AccountScreen: View {
     @State private var name: String = "Rachel Fizer" //needs to to get the name from the db
@@ -34,16 +35,20 @@ struct AccountScreen: View {
                     }
                 }
                 
-                Button(action: {
-                    // Replace with your logout logic
-                    print("Logging out...")
-                }) {
+                NavigationLink(destination: ContentView()) {
                     HStack {
                         Text("Log Out")
                             .foregroundColor(.yellow)
                         Spacer()
                     }
-                }
+                }.simultaneousGesture(TapGesture().onEnded {
+                    do {
+                        try Auth.auth().signOut()
+                    } catch let err {
+                        print("Log Out failed: \(err)")
+                    }
+                })
+                
             }
             .navigationTitle("Account")
             .listStyle(.insetGrouped)
