@@ -11,6 +11,8 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selectedTab: Tab = .house
+    @State private var showAddPopup = false
+    
     init() {
        UITabBar.appearance().isHidden = true
     }
@@ -18,19 +20,34 @@ struct ContentView: View {
         ZStack{
             VStack {
                 TabView(selection: $selectedTab){
-                    ForEach(Tab.allCases, id: \.rawValue) { tab in
-                        HStack {
-                            Image(systemName: tab.rawValue)
-                            Text("\(tab.rawValue.capitalized)")
-                                .bold()
-                        }
-                        .tag(tab)
-                    }
+                    DashboardScreen()
+                        .tag(Tab.house)
+                    AnalysisScreen()
+                        .tag(Tab.chartXY)
+                    RecurringScreen()
+                        .tag(Tab.recurring)
+                    AccountScreen()
+                        .tag(Tab.account)
                 }
             }
+            .disabled(showAddPopup)
+            .blur(radius: showAddPopup ? 3 : 0)
+            
             VStack {
                 Spacer()
-                TabBar(selectedTab: $selectedTab)
+                TabBar(selectedTab: $selectedTab, showAddPopup: $showAddPopup)
+            }
+            
+            if showAddPopup {
+                Color.white.opacity(0.1)
+                    .ignoresSafeArea()
+                    .onTapGesture {
+                        showAddPopup = false
+                    }
+                
+                AddPopup(showPopup: $showAddPopup)
+                    .transition(.scale)
+                    .zIndex(1)
             }
         }
     }

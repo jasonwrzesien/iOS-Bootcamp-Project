@@ -10,12 +10,14 @@ import SwiftUI
 enum Tab: String, CaseIterable {
     case house = "house"
     case chartXY = "chart.xyaxis.line"
-    case recurring = "clock.arrow.trianglehead.2.counterclockwise.rotate.90"
     case addExpense = "plus.viewfinder"
+    case recurring = "clock.arrow.trianglehead.2.counterclockwise.rotate.90"
+    case account = "person"
 }
 
 struct TabBar: View {
     @Binding var selectedTab: Tab
+    @Binding var showAddPopup: Bool
     private var fillImage: String {
         selectedTab.rawValue + ".fill"
     }
@@ -29,9 +31,13 @@ struct TabBar: View {
                         .foregroundColor(selectedTab == tab ? .yellow : .gray)
                         .font(.system(size: 22))
                         .onTapGesture {
-                             withAnimation(.easeIn(duration: 0.1)){
-                                 selectedTab = tab
-                             }
+                            if tab == .addExpense {
+                                showAddPopup = true
+                            } else {
+                                withAnimation(.easeIn(duration: 0.1)){
+                                     selectedTab = tab
+                                }
+                            }
                         }
                     Spacer()
                 }
@@ -45,7 +51,7 @@ struct TabBar: View {
 
 struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
-        TabBar(selectedTab: .constant(.house))
+        TabBar(selectedTab: .constant(.house), showAddPopup: .constant(false))
     }
 }
 
