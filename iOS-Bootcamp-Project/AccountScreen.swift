@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct AccountScreen: View {
+    @State private var firstName: String = "Rachel"
+    @State private var lastName: String = "Groove"
+    
     var body: some View {
-        ZStack{
-           Text("Account")
-                .bold()
-                .font(.largeTitle)
+        VStack(alignment: .leading) {
+            
+            Text("\(firstName) \(lastName)")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding([.top, .leading])
+            
+            Spacer()
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.blue)
-        .clipped()
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .background(Color(.systemGroupedBackground))
+        .padding(.top, 60)
         .ignoresSafeArea()
     }
 }
