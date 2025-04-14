@@ -8,23 +8,46 @@
 import SwiftUI
 
 struct AccountScreen: View {
-    @State private var firstName: String = "Rachel"
-    @State private var lastName: String = "Groove"
+    @State private var name: String = "Rachel Fizer" //needs to to get the name from the db
     
     var body: some View {
-        VStack(alignment: .leading) {
-            
-            Text("\(firstName) \(lastName)")
-                .font(.title)
-                .fontWeight(.bold)
-                .padding([.top, .leading])
-            
-            Spacer()
+        NavigationView {
+            List {
+                NavigationLink(destination: EditProfileScreen(name: $name)) {
+                    HStack {
+                        Text(name)
+                        Spacer()
+                    }
+                }
+                
+                NavigationLink(destination: ChangePasswordScreen()) {
+                    HStack {
+                        Text("Change Password")
+                        Spacer()
+                    }
+                }
+                
+                NavigationLink(destination: SettingsScreen()) {
+                    HStack {
+                        Text("Dashboard Settings")
+                        Spacer()
+                    }
+                }
+                
+                Button(action: {
+                    // Replace with your logout logic
+                    print("Logging out...")
+                }) {
+                    HStack {
+                        Text("Log Out")
+                            .foregroundColor(.yellow)
+                        Spacer()
+                    }
+                }
+            }
+            .navigationTitle("Account")
+            .listStyle(.insetGrouped)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .background(Color(.systemGroupedBackground))
-        .padding(.top, 60)
-        .ignoresSafeArea()
     }
 }
 
